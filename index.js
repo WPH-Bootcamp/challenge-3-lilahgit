@@ -16,8 +16,8 @@ function getValidNumberInput (prompMessage){
 }
 
 function getValidOperatorInput (prompMessage){
-    const validOperators = ['+', '-', '*', '/', '%', '**'];
     let operator;
+    const validOperators = ['+', '-', '*', '/', '%', '**'];
     if (validOperators.includes(operator)) {
             return operator;
         }
@@ -48,3 +48,37 @@ function add(a, b) {
     function power(a, b) {
         return a ** b;
     }
+
+// 3. Main Calculator Logic
+console.log("This is a simple calculator");
+
+while (true) {
+    let num1 = getValidNumberInput("Enter the first number: ");
+
+    let operator = getValidOperatorInput("Enter an operator (+, -, *, /, %, **): ");
+
+    let num2 = getValidNumberInput("Enter the second number: ");
+
+    let result;
+
+    switch (operator) {
+        case '+':
+            result = add(num1, num2);
+            break;
+        case '-':
+            result = subtract(num1, num2);
+            break;
+        case '*':
+            result = multiply(num1, num2);
+            break;
+        case '/':
+            result = divide(num1, num2);
+            break;
+        case '%':
+            result = modulo(num1, num2);
+                       result = power(num1, num2);
+            break;
+        default:
+            result = "Unknown operator!";
+    }
+}
