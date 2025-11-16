@@ -29,7 +29,7 @@ function calculation (a, b, operator) {
 }
 
 // 3. Main Calculator Logic
-console.log("This is a simple calculator");
+console.log("This is your simple calculator");
 
 while (true) {
     let num1 = getValidNumberInput ("Enter the first number: ");
@@ -37,8 +37,8 @@ while (true) {
     let operator = prompt ("Enter an operator (+, -, *, /, %, **): ");
     let result = calculation (parseFloat (num1), parseFloat (num2), operator)
 
-    // Display and analyze result
-    console.log(`\nResult: ${result}`);
+// 4. Data Analysis and Conditional Output
+    console.log(`Result: ${result}`);
 
     if (typeof result === 'number') {
         if (result > 0) console.log("The result is positive.");
@@ -48,11 +48,19 @@ while (true) {
         console.log(Number.isInteger(result) ? "The result is an integer." : "The result is a floating-point number.");
         console.log(`The result is ${result % 2 === 0 ? "Even" : "Odd"}.`);
 
-        if (result > 0 && result % 2 === 0) console.log("The result is positive and even.");
+    if (result > 0 && result % 2 === 0) console.log("The result is positive and even.");
     } else if (typeof result === 'string') {
         console.log(`Error Message: ${result}`);
     } else {
         console.log(result ?? "Result is undefined or null, something went wrong!");
     }
-}
 
+// 5. Exit Mechanism
+    let question = prompt ("Do you want to perform another calculation? (yes/no): ");
+
+    if (question.toLowerCase() === "no") {
+        console. log("Alright, see you later!");
+        break;
+    }
+    console.log("Thank you. I'm happy to help!");
+}
