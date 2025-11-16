@@ -22,7 +22,7 @@ function calculation (a, b, operator) {
        case "-": return a - b;
        case "*": return a * b;
        case "/": return b === 0 ? "Error: Division by zero!": a / b;
-       case "%": return b === 0 ? "Error: Division by zero!": a % b;
+       case "%": return a % b;
        case "**": return a ** b;
        default: return ("Invalid operator. Please enter one of +, -, *, /, %, **");
     }
