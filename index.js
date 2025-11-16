@@ -16,7 +16,7 @@ function getValidNumberInput (prompMessage){
 }
 
 // 2. Basic Arithmetic Operation (Functions and Operators)
-function calculation (a, operator, b) {
+function calculation (a, b, operator) {
     switch (operator){
        case "+": return a + b;
        case "-": return a - b;
@@ -32,13 +32,27 @@ function calculation (a, operator, b) {
 console.log("This is a simple calculator");
 
 while (true) {
-    let num1 = getValidNumberInput("Enter the first number: ");
+    let num1 = getValidNumberInput ("Enter the first number: ");
+    let num2 = getValidNumberInput ("Enter the second number: ");
+    let operator = prompt ("Enter an operator (+, -, *, /, %, **): ");
+    let result = calculation (parseFloat (num1), parseFloat (num2), operator)
 
-    let operator = getValidOperatorInput("Enter an operator (+, -, *, /, %, **): ");
+    // Display and analyze result
+    console.log(`\nResult: ${result}`);
 
-    let num2 = getValidNumberInput("Enter the second number: ");
+    if (typeof result === 'number') {
+        if (result > 0) console.log("The result is positive.");
+        else if (result < 0) console.log("The result is negative.");
+        else console.log("The result is zero.");
 
-    let result = calculation (parseInt(num1), parseInt (num2), operator);
+        console.log(Number.isInteger(result) ? "The result is an integer." : "The result is a floating-point number.");
+        console.log(`The result is ${result % 2 === 0 ? "Even" : "Odd"}.`);
 
-    console.log ("The result is:", result);
+        if (result > 0 && result % 2 === 0) console.log("The result is positive and even.");
+    } else if (typeof result === 'string') {
+        console.log(`Error Message: ${result}`);
+    } else {
+        console.log(result ?? "Result is undefined or null, something went wrong!");
+    }
 }
+
